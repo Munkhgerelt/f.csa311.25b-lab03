@@ -1,13 +1,20 @@
 package edu.cmu.cs.cs214.lab02;
 
-import edu.cmu.cs.cs214.lab02.shapes.Rectangle;
+import javax.swing.SwingUtilities;
 
-public class Main {
-    public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle(2, 3);
+/** The Main class serves as the entry point for the application. */
+final class Main {
+    /**
+     * Private constructor to prevent instantiation.
+     *
+     * @throws UnsupportedOperationException if instantiated.
+     */
+    private Main() {
+        throw new UnsupportedOperationException("Utility class");
+    }
 
-        Renderer renderer = new Renderer(rectangle);
-
-        renderer.draw();
+    /** The main method initializes the GUI. */
+    public static void main(final String[] args) {
+        SwingUtilities.invokeLater(() -> new ShapeGUI().setVisible(true));
     }
 }
