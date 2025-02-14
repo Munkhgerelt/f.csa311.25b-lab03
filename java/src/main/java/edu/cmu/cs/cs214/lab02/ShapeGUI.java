@@ -163,12 +163,19 @@ public class ShapeGUI extends JFrame {
 
     /**
      * Updates the drawing panel and the area label with the newly created shape.
+     * This method also utilizes the {@code Renderer} class to render the shape 
+     * by calling its {@code draw} method.
      *
-     * @param shape the {@code Shape} object to display
+     * @param shape the {@code Shape} object to display and render
      */
     private void updateDisplay(Shape shape) {
-        drawingPanel.setShape(shape);
+        Renderer renderer = new Renderer(shape);
+        renderer.draw(); // This prints the area to the console
+
+        // Update the GUI label with the shape's area
         areaLabel.setText(String.format("Area: %.2f", shape.getArea()));
+
+        drawingPanel.setShape(shape);
         drawingPanel.repaint();
     }
 
